@@ -230,7 +230,7 @@ class HomeScreen extends React.Component{
      render(){ 
        return (
           <div className={this.props.gameOver ? "homescreen homescreen--visible" : "homescreen homescreen--hidden"}>
-          
+          <div class="background">
             <div class="row">
               <div class="column">
                 <h1 className="homescreen__title">Family&nbsp;  Match</h1>
@@ -240,7 +240,7 @@ class HomeScreen extends React.Component{
                 <button className="homescreen__shuffle-button "  >Family Album</button>
               </div>
             </div>
-           
+           </div>
           </div>
          )
      }
