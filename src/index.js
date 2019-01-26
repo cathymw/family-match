@@ -115,6 +115,7 @@ class MemoryGame extends React.Component{
     
       //2 cards selected... check for match
      if( this.selectedHasSameAttribute(curCards,curSelectedCards,'type') ){
+      this.setState({modalIsOpen: true});
         curCards = this.changeAllPositionsOfSelected(curCards,curSelectedCards,"removed");
         //check if won game!
 
@@ -208,7 +209,6 @@ class MemoryGame extends React.Component{
             })}
        </div> 
        <div>
-        <button onClick={this.openModal}>Open Modal</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -218,15 +218,8 @@ class MemoryGame extends React.Component{
         >
 
           <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <div>I am a modal. This is your family.</div>
           <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
         </Modal>
       </div>
       </div>
