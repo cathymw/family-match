@@ -178,8 +178,8 @@ body::after{
 }
 
 .card{
-  width: 150px;
-  height: 225px;
+  width: 225px;
+  height: 150px;
   text-align: center;
   
   transition: all .2s;
@@ -290,33 +290,74 @@ body::after{
 }
 
 .card--pig .card__back{ 
-  background-color: pink; 
-  &::before{ content: "🐷"; }
- /* &::after{ content: "Pig"; }*/
+  overflow: hidden;
+  background-image: url("https://c7.alamy.com/comp/D11702/1990s-older-man-wearing-hat-and-overalls-holding-dog-D11702.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
+  .card--pig .card__back::before
+  { 
+    content: "";
+    font-size: 25px;
+    display: block;
+  }
+  .card--pig .card__back::after
+  { 
+    content: "";
+    font-size: 20px; 
+    display: block;
+  }
 
 .card--cactus .card__back{ 
+  overflow: hidden;
   background-color: green; 
-  &::before{ content: "🌵"; }
-  /*&::after{ content: "Cactus"; }*/
 }
+  .card--cactus .card__back::before {
+    content: "🌵";
+    font-size: 25px;
+    display: relative;
+  }
+  .card--cactus .card__back::after {
+    content: "Cactus";
+    font-size: 20px;
+    display: relative;
+  }
 
 .card--corn .card__back{ 
   background-color: goldenrod; 
-  &::before{ content: "🌽"; }
- /* &::after{ content: "Corn"; }*/
+  overflow: hidden;
 }
+  .card--corn .card__back::before  { 
+    content: "🌽"; 
+    font-size: 25px;
+    display: relative;
+  }
+  .card--corn .card__back::after { 
+    content: "Corn"; 
+     font-size: 20px;
+    display: relative;
+  }
+
 
 .card--shroom .card__back{ 
   background-color: brown; 
-  &::before{ content: "🍄"; }
-  /*&::after{ content: "Shroom"; }*/
+  overflow: hidden;
 }
+  .card--shroom .card__back::before{ 
+    content: "🍄"; 
+    font-size: 25px;
+    display: relative;
+  }
+  .card--shroom .card__back::after{ 
+    content: "Shroom"; 
+     font-size: 20px;
+    display: relative;
+  }
+
 
 .card--fish .card__back{ 
   background-color: blue; 
-  &::before{ content: "🐟"; }
-  /*&::after{ content: "Fish"; }*/
+  overflow: hidden;
 }
 
 .column {
@@ -331,5 +372,16 @@ body::after{
   content: "";
   display: table;
   clear: both;
+}
+
+.card--fish .card__back::before{ 
+  content: "🐟";
+  font-size: 25px;
+  display: relative; 
+}
+.card--fish .card__back::after{ 
+  content: "Fish";
+  font-size: 20px;
+  display: relative; 
 }
 
