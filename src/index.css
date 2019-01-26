@@ -310,32 +310,36 @@ body::after{
 
 .card--cactus .card__back{ 
   overflow: hidden;
-  background-color: green; 
+  background-image: url("https://c8.alamy.com/comp/FYE1H8/grandpa-spending-time-with-grandson-portrait-of-senior-man-playing-FYE1H8.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;;
 }
   .card--cactus .card__back::before {
-    content: "🌵";
+    content: "";
     font-size: 25px;
-    display: relative;
+    display: block;
   }
   .card--cactus .card__back::after {
-    content: "Cactus";
+    content: "";
     font-size: 20px;
-    display: relative;
+    display: block;
   }
 
 .card--corn .card__back{ 
-  background-color: goldenrod; 
+  background-image: url("https://previews.123rf.com/images/boguslavovna/boguslavovna1102/boguslavovna110200002/8800764-happy-old-couple-with-red-hearts-on-white-background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;;
   overflow: hidden;
 }
   .card--corn .card__back::before  { 
-    content: "🌽"; 
+    content: ""; 
     font-size: 25px;
-    display: relative;
+    display: block;
   }
   .card--corn .card__back::after { 
-    content: "Corn"; 
+    content: ""; 
      font-size: 20px;
-    display: relative;
+    display: block;
   }
 
 
