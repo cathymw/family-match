@@ -286,19 +286,21 @@ body::after{
 
 .card--pig .card__back{ 
   overflow: hidden;
-  background-color: pink; 
+  background-image: url("https://c7.alamy.com/comp/D11702/1990s-older-man-wearing-hat-and-overalls-holding-dog-D11702.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
   .card--pig .card__back::before
   { 
-    content: "🐷";
+    content: "";
     font-size: 25px;
-    display: relative;
+    display: block;
   }
   .card--pig .card__back::after
   { 
-    content: "Pig";
+    content: "";
     font-size: 20px; 
-    display: relative;
+    display: block;
   }
 
 .card--cactus .card__back{ 
