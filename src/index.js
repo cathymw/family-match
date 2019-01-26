@@ -217,7 +217,7 @@ class MemoryGame extends React.Component{
           contentLabel="Example Modal"
         >
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}></h2>
           <div>This is your family. Remember when this picture was taken? Good times...</div>
           <button onClick={this.closeModal}>close</button>
         </Modal>
