@@ -173,8 +173,8 @@ body::after{
 }
 
 .card{
-  width: 150px;
-  height: 225px;
+  width: 225px;
+  height: 150px;
   text-align: center;
   
   transition: all .2s;
@@ -285,32 +285,80 @@ body::after{
 }
 
 .card--pig .card__back{ 
+  overflow: hidden;
   background-color: pink; 
-  &::before{ content: "🐷"; }
- /* &::after{ content: "Pig"; }*/
 }
+  .card--pig .card__back::before
+  { 
+    content: "🐷";
+    font-size: 25px;
+    display: relative;
+  }
+  .card--pig .card__back::after
+  { 
+    content: "Pig";
+    font-size: 20px; 
+    display: relative;
+  }
 
 .card--cactus .card__back{ 
+  overflow: hidden;
   background-color: green; 
-  &::before{ content: "🌵"; }
-  /*&::after{ content: "Cactus"; }*/
 }
+  .card--cactus .card__back::before {
+    content: "🌵";
+    font-size: 25px;
+    display: relative;
+  }
+  .card--cactus .card__back::after {
+    content: "Cactus";
+    font-size: 20px;
+    display: relative;
+  }
 
 .card--corn .card__back{ 
   background-color: goldenrod; 
-  &::before{ content: "🌽"; }
- /* &::after{ content: "Corn"; }*/
+  overflow: hidden;
 }
+  .card--corn .card__back::before  { 
+    content: "🌽"; 
+    font-size: 25px;
+    display: relative;
+  }
+  .card--corn .card__back::after { 
+    content: "Corn"; 
+     font-size: 20px;
+    display: relative;
+  }
+
 
 .card--shroom .card__back{ 
   background-color: brown; 
-  &::before{ content: "🍄"; }
-  /*&::after{ content: "Shroom"; }*/
+  overflow: hidden;
 }
+  .card--shroom .card__back::before{ 
+    content: "🍄"; 
+    font-size: 25px;
+    display: relative;
+  }
+  .card--shroom .card__back::after{ 
+    content: "Shroom"; 
+     font-size: 20px;
+    display: relative;
+  }
+
 
 .card--fish .card__back{ 
   background-color: blue; 
-  &::before{ content: "🐟"; }
-  /*&::after{ content: "Fish"; }*/
+  overflow: hidden;
 }
-
+  .card--fish .card__back::before{ 
+    content: "🐟";
+    font-size: 25px;
+    display: relative; 
+  }
+  .card--fish .card__back::after{ 
+    content: "Fish";
+    font-size: 20px;
+    display: relative; 
+  }
