@@ -111,7 +111,7 @@ body::after{
 
 .homescreen__box{
   width: 90%;
-  background-color: red;
+  height: 50%;
   background: linear-gradient(to bottom, rgba(255,51,0,1) 0%,rgba(153,0,0,1) 100%);
   padding: 20px;
   text-align: center;
@@ -120,12 +120,13 @@ body::after{
 }
 
 .homescreen__title{
-  font-family: 'Monoton', cursive;
-   font-size: 8vw;
+  font-family: 'Arial';
+   font-size: 12vw;
   display: block;
   margin: 0;
-  color: orange;
-  line-height: 8vw;
+  color: white;
+  line-height: 20vw;
+  padding: 30;
 }
 
 .homescreen__stats{
@@ -140,20 +141,24 @@ body::after{
 }
 
 .homescreen__shuffle-button{
-  font-size: 5vw;
-  border-radius: 10em;
+  font-size: 7vw;
+  border-radius: 0;
   border: 0;
   text-transform: uppercase;
-  border: 2px solid white;
-  color: orange;
-  background-color: transparent;
-  background: linear-gradient(to bottom, rgba(255,51,0,1) 0%,rgba(153,0,0,1) 100%);
+  border: 2px solid rgb(19, 1, 1);
+  color: rgb(14, 9, 0);
+  background-color:  rgb(241, 239, 235);
+  background: rgb(241, 239, 235);
   /*width: 50%;*/
   outline: 0;
   transition: all .25s;
   transition-timing-function: ease-out;
   padding-left: 7vw;
   padding-right: 7vw;
+  min-height: 200;
+  min-width: 550;
+  margin-top: 40;
+  
   
   &:hover{
     background: #990000;
@@ -358,13 +363,29 @@ body::after{
   background-color: blue; 
   overflow: hidden;
 }
-  .card--fish .card__back::before{ 
-    content: "🐟";
-    font-size: 25px;
-    display: relative; 
-  }
-  .card--fish .card__back::after{ 
-    content: "Fish";
-    font-size: 20px;
-    display: relative; 
-  }
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 30;
+  vertical-align: middle;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card--fish .card__back::before{ 
+  content: "🐟";
+  font-size: 25px;
+  display: relative; 
+}
+.card--fish .card__back::after{ 
+  content: "Fish";
+  font-size: 20px;
+  display: relative; 
+}
+
