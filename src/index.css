@@ -1,14 +1,316 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Monoton");
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif");
+
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  20%   { transform: rotate(5deg); }
+  40%   { transform: rotate(-5deg); }
+  60%   { transform: rotate(5deg); }
+  80%   { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@keyframes pop-in {
+  0%  { 
+    transform: scale(.5, .5);
+    opacity: 0; 
+  }
+  40% { opacity: 1; }
+  65% { transform: scale(1.1, 1.1); }
+  100% { transform: scale(1, 1); }
 }
+
+@keyframes pop-away {
+  0%   {  transform: scale(1, 1) translate(0,0); }
+  40% { transform: scale(1.1, 1.1); }
+  65% { opacity: 1; }
+  
+  99% {  transform: scale(.5, .5);
+    opacity: 0; }
+  
+  100%{ transform: translate(-10000em,-10000em); }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  font-family: 'Bree Serif', serif;
+}
+
+.center-child{
+  background-color: #1c1b1a;
+ background-image: linear-gradient(90deg, transparent 50%, #333 50%);
+background-size: 5px 5px;
+
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+
+}
+
+body::after{
+ /* background-color: red;*/
+ background: radial-gradient(ellipse at center, rgba(0,0,0,0) 1%,rgba(0,0,0,0.01) 2%,rgba(0,0,0,0.99) 99%,rgba(0,0,0,1) 100%);
+  color: #ccc;
+  width: 100%;
+  height: 100%;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .9;
+  pointer-events: none;
+}
+
+.memory-app{
+  position: relative;
+}
+
+.center-child{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.homescreen{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  
+  z-index: 4;
+}
+
+.homescreen--visible{
+ animation-name: pop-in;
+ animation-duration: .75s;
+  animation-fill-mode: forwards;
+}
+.homescreen--hidden{
+  /*display: none;*/
+ animation-name: pop-away;
+ animation-duration: .75s;
+ animation-fill-mode: forwards;
+}
+
+.homescreen__box{
+  width: 90%;
+  background-color: red;
+  background: linear-gradient(to bottom, rgba(255,51,0,1) 0%,rgba(153,0,0,1) 100%);
+  padding: 20px;
+  text-align: center;
+  border-radius: 30em;
+  border: 6px solid orange;
+}
+
+.homescreen__title{
+  font-family: 'Monoton', cursive;
+   font-size: 8vw;
+  display: block;
+  margin: 0;
+  color: orange;
+  line-height: 8vw;
+}
+
+.homescreen__stats{
+  text-transform: uppercase;
+  font-size: 3vw;
+  color: #fff;
+  margin-bottom: .3em;
+}
+
+.homescreen__number{
+  color: #ffcc00;
+}
+
+.homescreen__shuffle-button{
+  font-size: 5vw;
+  border-radius: 10em;
+  border: 0;
+  text-transform: uppercase;
+  border: 2px solid white;
+  color: orange;
+  background-color: transparent;
+  background: linear-gradient(to bottom, rgba(255,51,0,1) 0%,rgba(153,0,0,1) 100%);
+  /*width: 50%;*/
+  outline: 0;
+  transition: all .25s;
+  transition-timing-function: ease-out;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  
+  &:hover{
+    background: #990000;
+    letter-spacing: .1em;
+    /*box-shadow: 0px 0px 5vw #ffcc00;*/
+    border-color: orange;
+  }
+}
+
+
+.cards{
+  display: flex;
+  flex-directon: row;
+  flex-wrap: wrap;
+   align-items: center;
+  justify-content: center;
+}
+
+.card{
+  width: 150px;
+  height: 225px;
+  text-align: center;
+  
+  transition: all .2s;
+  
+  perspective: 800;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.card--removed{
+  animation-name: shake;
+ animation-duration: .3s;
+}
+
+.card--selected{
+  /*transform: rotate(20deg);*/
+}
+
+.card--selected .card__inner,
+.card--removed .card__inner{
+  transform: rotatey(-180deg);
+  
+}
+
+.card--unselected .card__front{
+  cursor: pointer;
+  transition: box-shadow .25s;
+  
+  &:hover{
+    box-shadow: 0px 0px 20px #ffcc00;
+  }
+  
+  &:active{
+    /*transform: scale(.97);*/
+  }
+}
+
+.card__inner{
+  /*background-color: white;*/
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all .5s;
+}
+
+.card__face{
+ /* backface-visibility: hidden ;*/
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+  /*border: 2px solid transparent;*/
+  position: absolute;
+  border-radius: 5%;
+  backface-visibility: hidden ;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.card__front{
+  background: repeating-linear-gradient(
+    45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
+  );
+  overflow: hidden;
+  
+  z-index: 1;
+  
+  &::before{
+    background: repeating-linear-gradient(
+      310deg,
+      black,
+      black 10px,
+      white 10px,
+      white 20px
+    );
+    width: 100%;
+    height: 100%;
+    opacity: .1;
+    content: '';
+   }
+}
+
+.card__back{
+
+  z-index: 2;
+  transform: rotatey(-180deg);
+}
+
+.card__back::before{
+  content: "";
+  font-size: 10vw;
+  display: block;
+  /*margin-top: -1vw;*/
+}
+
+.card__back::after{
+  content: "";
+  font-size: 3vw;
+  color: #fff;
+  display: block;
+  /*margin-top: -1vw;*/
+}
+
+.card--pig .card__back{ 
+  background-color: pink; 
+  &::before{ content: "🐷"; }
+ /* &::after{ content: "Pig"; }*/
+}
+
+.card--cactus .card__back{ 
+  background-color: green; 
+  &::before{ content: "🌵"; }
+  /*&::after{ content: "Cactus"; }*/
+}
+
+.card--corn .card__back{ 
+  background-color: goldenrod; 
+  &::before{ content: "🌽"; }
+ /* &::after{ content: "Corn"; }*/
+}
+
+.card--shroom .card__back{ 
+  background-color: brown; 
+  &::before{ content: "🍄"; }
+  /*&::after{ content: "Shroom"; }*/
+}
+
+.card--fish .card__back{ 
+  background-color: blue; 
+  &::before{ content: "🐟"; }
+  /*&::after{ content: "Fish"; }*/
+}
+
