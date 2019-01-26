@@ -335,32 +335,36 @@ body::after{
 
 
 .card--shroom .card__back{ 
-  background-color: brown; 
   overflow: hidden;
+  background-image: url("https://c8.alamy.com/comp/GG3R29/old-man-smiling-GG3R29.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
   .card--shroom .card__back::before{ 
-    content: "🍄"; 
+    content: ""; 
     font-size: 25px;
     display: relative;
   }
   .card--shroom .card__back::after{ 
-    content: "Shroom"; 
+    content: ""; 
      font-size: 20px;
     display: relative;
   }
 
 
 .card--fish .card__back{ 
-  background-color: blue; 
   overflow: hidden;
+  background-image: url("https://image.shutterstock.com/image-photo/old-man-on-wheelchair-his-450w-727558213.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
   .card--fish .card__back::before{ 
-    content: "🐟";
+    content: "";
     font-size: 25px;
     display: relative; 
   }
   .card--fish .card__back::after{ 
-    content: "Fish";
+    content: "";
     font-size: 20px;
     display: relative; 
   }
