@@ -1,7 +1,10 @@
 # family-match
 
+## Run these:
+npm install create-react-app  
+npm install react-lodash  
 
-
+Starter code from: https://codepen.io/larryarmstrong/pen/dXXMvN?editors=0010
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
